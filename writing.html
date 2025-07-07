@@ -10,11 +10,43 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    .week-header {
+      cursor: pointer;
+      font-weight: 500;
+      margin: 0;
+      padding: 0.5rem 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .week-header:hover {
+      background: #e9ecef;
+    }
+    .week-content {
+      display: none;
+      margin-bottom: 1rem;
+      margin-top: -5px;
+      padding: 1rem 1.5rem 1rem 2rem;
+      border-left: 3px solid #d3d3d3;
+      background: #fcfcfc;
+      border-radius: 0 8px 8px 8px;
+    }
+    .week-header.open + .week-content {
+      display: block;
+    }
+    .week-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <div class="container-fluid">
     <div class="row flex-nowrap">
-      <!-- Sidebar -->
+      <!-- Sidebar (same as before) -->
       <nav class="col-auto sidebar d-flex flex-column p-0">
         <div>
           <div class="sidebar-title">
@@ -48,7 +80,6 @@
             </li>
           </ul>
         </div>
-        <!-- Contact Card -->
         <div class="contact-card mt-auto">
           <div class="fw-semibold mb-1">Contact</div>
           <div><i class="bi bi-person-circle"></i>Mr. Skibidi</div>
@@ -78,11 +109,53 @@
                 </ol>
               </div>
             </div>
+            <!-- Weeks List -->
+            <ul class="week-list">
+              <li>
+                <div class="week-header">Week 1: Introduction to Writing Task 1 <i class="bi bi-chevron-down float-end"></i></div>
+                <div class="week-content">
+                  <strong>Topics:</strong> Overview of Task 1, basic structure, common mistakes.<br>
+                  <strong>Task:</strong> Write a report about a static bar chart (given in class).<br>
+                  <strong>Deadline:</strong> Sunday 23:59.
+                </div>
+              </li>
+              <li>
+                <div class="week-header">Week 2: Process Diagrams & Complex Sentences <i class="bi bi-chevron-down float-end"></i></div>
+                <div class="week-content">
+                  <strong>Topics:</strong> How to describe a process diagram, using sequencing phrases, combining sentences.<br>
+                  <strong>Task:</strong> Write a report describing a simple process (worksheet).<br>
+                  <strong>Deadline:</strong> Sunday 23:59.
+                </div>
+              </li>
+              <li>
+                <div class="week-header">Week 3: Writing Task 2 - Opinion Essays <i class="bi bi-chevron-down float-end"></i></div>
+                <div class="week-content">
+                  <strong>Topics:</strong> Agree/Disagree essays, building arguments, basic essay structure.<br>
+                  <strong>Task:</strong> Write an essay about whether technology makes life better.<br>
+                  <strong>Deadline:</strong> Sunday 23:59.
+                </div>
+              </li>
+              <!-- Add more weeks as needed -->
+            </ul>
           </div>
         </div>
       </main>
     </div>
   </div>
-  <!-- Bootstrap JS (Optional for dropdowns/tooltips) -->
+  <script>
+    // Toggle logic for weeks
+    document.querySelectorAll('.week-header').forEach(header => {
+      header.addEventListener('click', function() {
+        // Toggle open class
+        this.classList.toggle('open');
+        // Close other weeks
+        document.querySelectorAll('.week-header').forEach(h => {
+          if (h !== this) h.classList.remove('open');
+        });
+      });
+    });
+  </script>
+  <!-- Bootstrap JS (Optional) -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+</html>

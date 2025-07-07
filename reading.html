@@ -10,6 +10,38 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
   <!-- Custom CSS -->
   <link href="css/style.css" rel="stylesheet">
+  <style>
+    .week-header {
+      cursor: pointer;
+      font-weight: 500;
+      margin: 0;
+      padding: 0.5rem 1rem;
+      background: #f8f9fa;
+      border-radius: 8px;
+      transition: background 0.2s;
+      user-select: none;
+    }
+    .week-header:hover {
+      background: #e9ecef;
+    }
+    .week-content {
+      display: none;
+      margin-bottom: 1rem;
+      margin-top: -5px;
+      padding: 1rem 1.5rem 1rem 2rem;
+      border-left: 3px solid #d3d3d3;
+      background: #fcfcfc;
+      border-radius: 0 8px 8px 8px;
+    }
+    .week-header.open + .week-content {
+      display: block;
+    }
+    .week-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+  </style>
 </head>
 <body>
   <div class="container-fluid">
@@ -74,10 +106,51 @@
                 </ol>
               </div>
             </div>
+            <!-- Weeks List -->
+            <ul class="week-list">
+              <li>
+                <div class="week-header">Week 1: Skimming & Scanning <i class="bi bi-chevron-down float-end"></i></div>
+                <div class="week-content">
+                  <strong>Topics:</strong> Skimming for gist, scanning for details.<br>
+                  <strong>Task:</strong> Complete Passage 1 and highlight keywords.<br>
+                  <strong>Deadline:</strong> Sunday 23:59.
+                </div>
+              </li>
+              <li>
+                <div class="week-header">Week 2: True/False/Not Given & Vocabulary <i class="bi bi-chevron-down float-end"></i></div>
+                <div class="week-content">
+                  <strong>Topics:</strong> Dealing with tricky questions, strategies for T/F/NG.<br>
+                  <strong>Task:</strong> Do Passage 2, note difficult words, and check explanations.<br>
+                  <strong>Deadline:</strong> Sunday 23:59.
+                </div>
+              </li>
+              <li>
+                <div class="week-header">Week 3: Matching Headings <i class="bi bi-chevron-down float-end"></i></div>
+                <div class="week-content">
+                  <strong>Topics:</strong> How to match headings efficiently, recognizing main ideas.<br>
+                  <strong>Task:</strong> Complete Passage 3 and practice matching headings.<br>
+                  <strong>Deadline:</strong> Sunday 23:59.
+                </div>
+              </li>
+              <!-- Add more weeks as needed -->
+            </ul>
           </div>
         </div>
       </main>
     </div>
   </div>
-  <!-- Bootstrap JS (Optional for dropdowns/tooltips) -->
-  <script src=
+  <script>
+    // Toggle logic for weeks (accordion style)
+    document.querySelectorAll('.week-header').forEach(header => {
+      header.addEventListener('click', function() {
+        this.classList.toggle('open');
+        document.querySelectorAll('.week-header').forEach(h => {
+          if (h !== this) h.classList.remove('open');
+        });
+      });
+    });
+  </script>
+  <!-- Bootstrap JS (Optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
