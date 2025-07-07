@@ -85,6 +85,54 @@ body {
     margin-left: 0.8em;
 }
 
+/* Sidebar Title */
+.sidebar-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    padding: 1.5rem 1.3rem 1rem 1.3rem;
+    color: #ffc107;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    letter-spacing: -1px;
+}
+
+/* Contact Card */
+.contact-card {
+    background: #23272b;
+    color: #f8f9fa;
+    border-radius: 0.8rem;
+    padding: 1.1rem 1.3rem;
+    margin: 1.5rem 1rem 1.2rem 1rem;
+    font-size: 1.02rem;
+    box-shadow: 0 1px 8px rgba(33,37,41,0.07);
+}
+
+.contact-card .fw-semibold {
+    font-weight: 600;
+    color: #ffc107;
+    margin-bottom: 0.3rem;
+}
+
+.contact-card i {
+    margin-right: 0.5em;
+    color: #adb5bd;
+}
+
+/* Dashboard Section Hide/Show (optional, for smoother transitions) */
+.dashboard-section {
+    transition: opacity 0.2s;
+}
+
+/* Optional: Style for code tags inside lists for better readability */
+li code {
+    background: #f1f3f5;
+    color: #d63384;
+    padding: 0.1em 0.4em;
+    border-radius: 0.3em;
+    font-size: 0.98em;
+}
+
 @media (max-width: 991.98px) {
     .sidebar {
         min-width: 60px;
