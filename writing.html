@@ -147,10 +147,6 @@
       header.addEventListener('click', function() {
         // Toggle open class
         this.classList.toggle('open');
-        // Close other weeks
-        document.querySelectorAll('.week-header').forEach(h => {
-          if (h !== this) h.classList.remove('open');
-        });
       });
     });
   </script>

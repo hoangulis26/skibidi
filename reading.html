@@ -144,9 +144,6 @@
     document.querySelectorAll('.week-header').forEach(header => {
       header.addEventListener('click', function() {
         this.classList.toggle('open');
-        document.querySelectorAll('.week-header').forEach(h => {
-          if (h !== this) h.classList.remove('open');
-        });
       });
     });
   </script>
